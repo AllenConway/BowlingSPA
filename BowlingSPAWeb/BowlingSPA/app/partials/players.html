@@ -1,0 +1,20 @@
+﻿<div>
+
+    <!--Bootstrap Container exists on default HTML view housing any grid system elements in this view-->
+    <div class="padding10">
+
+        <!-- Angular-UI Typeahead -->
+        <input type="text" ng-model="asyncSelected"
+               placeholder="Type in a bowler'''s name"
+               typeahead="bowler for bowlers in getBowlers($viewValue)"
+               typeahead-loading="loadingBowlers"
+               class="form-control">
+        <i ng-show="loadingBowlers" class="glyphicon glyphicon-refresh"></i>
+
+         <!-- {{ error }}
+        <div class="gridStyle" ng-grid="gridOptions">
+
+        </div>-->
+    </div>
+
+</div>

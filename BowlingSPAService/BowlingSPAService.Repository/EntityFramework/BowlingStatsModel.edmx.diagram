@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="91e2443c24c54298a66649f18f7725ef" Name="Diagram1">
+        <EntityTypeShape EntityType="BowlingStatsModel.Bowler" Width="1.5" PointX="1.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BowlingStatsModel.Match" Width="1.5" PointX="8.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BowlingStatsModel.Team" Width="1.5" PointX="4.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BowlingStatsModel.League" Width="1.5" PointX="9.625" PointY="0.875" />
+        <AssociationConnector Association="BowlingStatsModel.FK_Match_Team1" />
+        <AssociationConnector Association="BowlingStatsModel.FK_Match_Team2" />
+        <AssociationConnector Association="BowlingStatsModel.FK_Team_League" />
+        <EntityTypeShape EntityType="BowlingStatsModel.Score" Width="1.5" PointX="1.625" PointY="4.5" />
+        <AssociationConnector Association="BowlingStatsModel.FK_Score_Bowler" />
+        <AssociationConnector Association="BowlingStatsModel.FK_Score_Match" />
+        <AssociationConnector Association="BowlingStatsModel.FK_Score_Team" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

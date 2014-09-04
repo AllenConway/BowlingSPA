@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingSPAService.Tests", "BowlingSPAService.Tests\BowlingSPAService.Tests.csproj", "{195C3B42-7BD3-4EAA-959F-DCE06820672B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingSPAService.Repository", "BowlingSPAService.Repository\BowlingSPAService.Repository.csproj", "{67109198-5605-4DA2-9AB2-AA07AA685FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingSPAService.WebAPI", "BowlingSPAService.WebAPI\BowlingSPAService.WebAPI.csproj", "{CD826FE6-FA2B-4F36-A0A0-92B40FFC1F20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Web API Service", "1. Web API Service", "{0D006B49-C4F0-4DF8-977E-0BF2C7F27991}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Repository", "3. Repository", "{C8D3714D-234C-46E4-ADCD-F4D7233DCB99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Unit Tests", "4. Unit Tests", "{4CDF070C-0AC2-4C81-BEFB-F702466A662A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingSPAService.Model", "BowlingSPAService.Model\BowlingSPAService.Model.csproj", "{FF9B8C03-1203-45E2-B8AA-D90DB50E3657}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Model", "2. Model", "{A9D5F522-3D6B-4379-8E2E-98EC40146C89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{195C3B42-7BD3-4EAA-959F-DCE06820672B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195C3B42-7BD3-4EAA-959F-DCE06820672B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195C3B42-7BD3-4EAA-959F-DCE06820672B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195C3B42-7BD3-4EAA-959F-DCE06820672B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67109198-5605-4DA2-9AB2-AA07AA685FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67109198-5605-4DA2-9AB2-AA07AA685FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67109198-5605-4DA2-9AB2-AA07AA685FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67109198-5605-4DA2-9AB2-AA07AA685FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD826FE6-FA2B-4F36-A0A0-92B40FFC1F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD826FE6-FA2B-4F36-A0A0-92B40FFC1F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD826FE6-FA2B-4F36-A0A0-92B40FFC1F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD826FE6-FA2B-4F36-A0A0-92B40FFC1F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9B8C03-1203-45E2-B8AA-D90DB50E3657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9B8C03-1203-45E2-B8AA-D90DB50E3657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9B8C03-1203-45E2-B8AA-D90DB50E3657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9B8C03-1203-45E2-B8AA-D90DB50E3657}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{195C3B42-7BD3-4EAA-959F-DCE06820672B} = {4CDF070C-0AC2-4C81-BEFB-F702466A662A}
+		{67109198-5605-4DA2-9AB2-AA07AA685FB0} = {C8D3714D-234C-46E4-ADCD-F4D7233DCB99}
+		{CD826FE6-FA2B-4F36-A0A0-92B40FFC1F20} = {0D006B49-C4F0-4DF8-977E-0BF2C7F27991}
+		{FF9B8C03-1203-45E2-B8AA-D90DB50E3657} = {A9D5F522-3D6B-4379-8E2E-98EC40146C89}
+	EndGlobalSection
+EndGlobal

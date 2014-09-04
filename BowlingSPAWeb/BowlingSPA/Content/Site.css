@@ -1,0 +1,56 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Set padding to display errors that occur during databinding */
+.padding-error {
+    padding-top: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+    .nofloat {
+        float: none;
+        padding: 10px 15px;
+    }
+}
+
+/* App Custom Settings */
+.img-header {
+   max-height: 200px;
+}
+
+/* Bootstrap Custom Settings */
+.jumbotron {
+    /*height: 100px;
+    margin-bottom: 0px;    
+    background-position: 0% 75%;
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.padding10 {
+   padding-top: 10px;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 600px; 
+    height: 300px;
+}
+

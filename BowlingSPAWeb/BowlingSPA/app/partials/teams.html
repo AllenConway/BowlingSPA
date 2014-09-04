@@ -1,0 +1,23 @@
+﻿<div>
+
+    <!--Bootstrap Container exists on default HTML view housing any grid system elements in this view-->
+    <div class="padding10">
+
+        <!-- Single button style dropdown -->
+        <div class="btn-group " dropdown is-open="status.isopen">
+            <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+                Select a League <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="team in teams">
+                    <a href="#" is-open="status.isopen" id="{{team.Id}}" ng-click="showGridData($event, team)">{{team.Name}}</a>
+                </li>
+            </ul>
+        </div>
+        {{ error }}
+        <div class="gridStyle" ng-grid="gridOptions">
+
+        </div>
+    </div>
+
+</div>
