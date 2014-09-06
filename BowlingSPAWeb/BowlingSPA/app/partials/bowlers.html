@@ -18,16 +18,17 @@
         <!--Angular-UI Button style dropdown-->
         <div class="btn-group padding10" dropdown is-open="status.isopen">
             <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="!bowlersTeams">
-                Select a League <span class="caret"></span>
+                Select a Team <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
                 <li ng-repeat="team in bowlersTeams">
-                    <a href="#" is-open="status.isopen" id="{{team.Id}}" ng-click="showBowlerData($event, bowler.Id)">{{team.Name}}</a>
+                    <a href="#" is-open="status.isopen" id="{{team.Id}}" ng-click="showBowlerData($event, bowler.Id, team.Id)">{{team.Name}}</a>
                 </li>
             </ul>
         </div>
-
         
+
+        <h3>{{showBowlerData.BowlerName}}</h3>
         
     </div>
 

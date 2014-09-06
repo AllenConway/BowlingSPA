@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Web.Http;
 using BowlingSPAService.Model.DomainModels;
 using BowlingSPAService.Model.EntityModels;
@@ -9,6 +8,7 @@ using BowlingSPAService.Repository.RepoTransactions;
 
 namespace BowlingSPAService.WebAPI.Controllers.api
 {
+    [RoutePrefix("LeagueStandings")]
     public class LeagueStandingsController : ApiController
     {
 
@@ -25,7 +25,7 @@ namespace BowlingSPAService.WebAPI.Controllers.api
         /// </summary>
         /// <param name="leagueId"></param>
         /// <returns></returns>
-        [Route("LeagueStandings/{leagueId}")]
+        [Route("{leagueId}")]
         public IEnumerable<LeagueStats> Get(int leagueId)
         {
             //Get all of the teams for the league ID provided, so we can calculate the 

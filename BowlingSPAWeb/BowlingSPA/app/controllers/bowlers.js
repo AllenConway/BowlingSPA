@@ -48,6 +48,35 @@
                   .then(onGetBowlersLeagues, onGetBowlersLeaguesError);
       }
 
+      var onBowlerStandings = function (data) {
+         $scope.bowlerData = data;
+      };
+
+      var onBowlerStandingsError = function (response) {
+         $scope.error = "Could not fetch the bowler's standings";
+      };
+
+      $scope.showBowlerData = function ($event, bowlerId, teamId) {
+
+         //Close the dropdown after a selection has been made
+         $scope.status = {
+            isopen: false
+         };
+
+         if (bowlerId === null) {
+            return;
+         }
+         //Prevent default processing from occurring on the dropdown - this prevents any navigation from the anchor tag.
+         //Another option supported by modern browsers is just to use href="" to prevent any navigation from occurring.
+         //Downside of this method is manipulating the DOM from controller and thus coupling the view and Controller
+         $event.preventDefault();
+
+
+         bowling.getBowlerStandings(bowlerId, teamId)
+            .then(onBowlerStandings, onBowlerStandingsError);
+         //$scope.userName = "Split Happens";
+      };
+
    };
 
    app.controller("BowlersController", ["$scope", "$http", "bowling", BowlersController]);

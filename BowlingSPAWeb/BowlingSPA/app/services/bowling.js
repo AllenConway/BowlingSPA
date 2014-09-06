@@ -23,6 +23,16 @@
              });
       }
 
+      var getBowlerStandings = function (bowlerId, teamId) {
+
+         this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
+
+         return $http.get(this._apiResourceUrl + '/BowlerStandings', { params: { bowlerId: bowlerId, teamId: teamId } })
+             .then(function (response) {
+                return response.data;
+             });
+      }
+
       var getBowlerMatch = function (val) {
 
          this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
@@ -60,6 +70,7 @@
       return {
          getLeagues: getLeagues,
          getBowlerLeagues: getBowlerLeagues,
+         getBowlerStandings: getBowlerStandings,
          getBowlerMatch: getBowlerMatch,
          getBowlers: getBowlers,
          getLeagueStandings: getLeagueStandings

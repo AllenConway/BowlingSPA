@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BowlingSPAService.Model.DomainModels;
 
 namespace BowlingSPAService.Model.EntityModels
@@ -14,9 +15,27 @@ namespace BowlingSPAService.Model.EntityModels
             set { fullName = value; }
         }
 
-        public BowlerStats CalculateBowlerStats(IList<Bowler> bowlers, int leagueId)
+        /// <summary>
+        /// Calculates bowler stats 
+        /// </summary>
+        /// <param name="bowlerScores"></param>
+        /// <returns></returns>
+        public BowlerStats CalculateBowlerStats(IList<Score> bowlerScores)
         {
-            return new BowlerStats();
+            BowlerStats bowlerStats = new BowlerStats();
+
+            if (bowlerScores == null)
+                return bowlerStats;
+           
+            var average = bowlerScores.Average(x => x.Pins);
+            if (average != null)
+                bowlerStats.Average = (double)average;
+            bowlerStats.HighGame = bowlerScores.OrderByDescending(x => x.Pins).Select(y => y.Pins).FirstOrDefault();
+            bowlerStats.BowlerName = bowlerScores.First().Bowler.FullName;
+            bowlerStats.TeamName = bowlerScores.First().Team.Name;
+
+            return bowlerStats;
+
         }
 
     }

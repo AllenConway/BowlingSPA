@@ -1,35 +1,43 @@
-﻿using System.Collections.Generic;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Web.Http;
+using BowlingSPAService.Model.DomainModels;
+using BowlingSPAService.Model.EntityModels;
+using BowlingSPAService.Repository.RepoTransactions;
 
 namespace BowlingSPAService.WebAPI.Controllers.api
 {
+    [RoutePrefix("BowlerStandings")]
     public class BowlerStandingsController : ApiController
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+
+        private readonly IUnitOfWork unitOfWork;
+
+        public BowlerStandingsController(IUnitOfWork unitOfWork)
         {
-            return new string[] { "value1", "value2" };
+            this.unitOfWork = unitOfWork;
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        /// <summary>
+        /// Gets the stats for the individual bowler based on the team provided.
+        /// </summary>
+        /// <param name="bowlerId" type="int"></param>
+        /// <param name="teamId" type="int"></param>
+        /// <returns>BowlerStats</returns>
+        [Route("")]
+        public BowlerStats Get(int bowlerId, int teamId)
         {
-        }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            //Get all of the scores for the bowler on the team specified
+            var bowlerScores = this.unitOfWork.Repository.GetQuery<Score>(x => x.BowlerId == bowlerId  && x.TeamId == teamId)
+                                                                        .Include(x => x.Team)
+                                                                        .Include(x => x.Bowler).ToList();
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            //Calculate the stats for
+            var bowler = new Bowler();
+            return bowler.CalculateBowlerStats(bowlerScores);
         }
     }
+    
 }
