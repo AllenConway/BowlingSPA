@@ -1,0 +1,34 @@
+﻿<div>
+
+    <!--Bootstrap Container exists on default HTML view housing any grid system elements in this view-->
+    <div class="padding10">
+        
+        {{ error }}
+        <!-- Angular-UI Typeahead -->
+        <input type="text" ng-model="asyncSelected"
+               typeahead-on-select="getBowlersLeagues($item)"
+               id="{{bowler.Id}}"
+               placeholder="Type in a bowler's name"
+               typeahead="bowler.FullName for bowler in getBowlers($viewValue)"
+               typeahead-loading="loadingBowlers"
+               typeahead-min-length="2"
+               class="form-control">
+        <i ng-show="loadingBowlers" class="glyphicon glyphicon-refresh"></i>
+        
+        <!--Angular-UI Button style dropdown-->
+        <div class="btn-group padding10" dropdown is-open="status.isopen">
+            <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="!bowlersTeams">
+                Select a League <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="team in bowlersTeams">
+                    <a href="#" is-open="status.isopen" id="{{team.Id}}" ng-click="showBowlerData($event, bowler.Id)">{{team.Name}}</a>
+                </li>
+            </ul>
+        </div>
+
+        
+        
+    </div>
+
+</div>

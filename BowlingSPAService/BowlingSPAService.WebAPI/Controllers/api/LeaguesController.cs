@@ -6,6 +6,7 @@ using BowlingSPAService.Repository.RepoTransactions;
 
 namespace BowlingSPAService.WebAPI.Controllers.api
 {
+    [RoutePrefix("Leagues")]
     public class LeaguesController : ApiController
     {
 
@@ -20,13 +21,13 @@ namespace BowlingSPAService.WebAPI.Controllers.api
         /// Returns all of the Leagues
         /// </summary>
         /// <returns></returns>
-        [Route("Leagues")]
+        [Route("")]
         public IEnumerable<League> Get()
         {
             return unitOfWork.Repository.GetAll<League>();
         }
 
-        [Route("Leagues/{id}")]
+        [Route("{id}")]
         public League Get(int id)
         {
             return this.unitOfWork.Repository.GetQuery<League>(x => x.Id == id).SingleOrDefault();

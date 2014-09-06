@@ -13,6 +13,30 @@
              });
       }
 
+      var getBowlerLeagues = function (bowlerId) {
+
+         this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
+
+         return $http.get(this._apiResourceUrl + '/BowlerLeagues/' + bowlerId)
+             .then(function (response) {
+                return response.data;
+             });
+      }
+
+      var getBowlerMatch = function (val) {
+
+         this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
+
+         return $http.get(this._apiResourceUrl + '/Bowler', { params: { name: val } })
+             .then(function (response) {
+                var matchingBowlers = [];
+                angular.forEach(response.data, function (item) {
+                   matchingBowlers.push(item.FullName);
+                });
+                return matchingBowlers;
+             });
+      }
+
       var getBowlers = function () {
 
          this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
@@ -35,6 +59,8 @@
 
       return {
          getLeagues: getLeagues,
+         getBowlerLeagues: getBowlerLeagues,
+         getBowlerMatch: getBowlerMatch,
          getBowlers: getBowlers,
          getLeagueStandings: getLeagueStandings
       };

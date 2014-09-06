@@ -19,9 +19,9 @@
             templateUrl: "app/partials/teams.html",
             controller: "TeamsController"
          })
-         .when("/players", {
-            templateUrl: "app/partials/players.html",
-            controller: "PlayersController"
+         .when("/bowlers", {
+            templateUrl: "app/partials/bowlers.html",
+            controller: "BowlersController"
          })
          .otherwise({ redirectTo: "/landing" });
    });

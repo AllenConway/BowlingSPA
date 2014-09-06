@@ -11,6 +11,7 @@
 
         public int? TotalHandicap { get; set; }
 
+        //Read-only properties will not be serialized, so must include the 'set' as well
         private int? totalPinsPlusHandicap;
         public int? TotalPinsPlusHandicap
         {

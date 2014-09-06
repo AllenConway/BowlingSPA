@@ -43,6 +43,7 @@
     <Compile Include="DomainModels\BowlerStats.cs" />
     <Compile Include="DomainModels\League.cs" />
     <Compile Include="DomainModels\LeagueStats.cs" />
+    <Compile Include="DomainModels\Team.cs" />
     <Compile Include="EntityModels\Bowler.cs">
       <DependentUpon>BowlingStatsModel.tt</DependentUpon>
     </Compile>

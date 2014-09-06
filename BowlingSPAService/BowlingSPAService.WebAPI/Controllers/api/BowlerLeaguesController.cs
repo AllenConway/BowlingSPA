@@ -1,35 +1,30 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using BowlingSPAService.Model.EntityModels;
+using BowlingSPAService.Repository.RepoTransactions;
 
 namespace BowlingSPAService.WebAPI.Controllers.api
 {
+    [RoutePrefix("BowlerLeagues")]
     public class BowlerLeaguesController : ApiController
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        private readonly IUnitOfWork unitOfWork;
+
+        public BowlerLeaguesController(IUnitOfWork unitOfWork)
         {
-            return new string[] { "value1", "value2" };
+            this.unitOfWork = unitOfWork;
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        /// <summary>
+        /// Returns a collection of bowler's that match the name value provided 
+        /// </summary>
+        /// <param name="bowlerId" type="int"></param>
+        /// <returns></returns>
+        [Route("{bowlerId}")]
+        public IEnumerable<Team> Get(int bowlerId)
         {
-            return "value";
-        }
-
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            return this.unitOfWork.Repository.GetQuery<Team>(x => x.Scores.Any(y => y.BowlerId == bowlerId)).ToList();            
         }
     }
 }
