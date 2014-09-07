@@ -15,9 +15,32 @@
             </ul>
         </div>
         {{ error }}
-        <div class="gridStyle" ng-grid="gridOptions">
+        <!--Add Bootstrap class that will make the grid responsive-->
+        <div class="table-responsive">
+            <div class="gridStyle" ng-grid="gridOptions">
 
+            </div>
         </div>
-    </div>
+        <!--<div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Team Name</th>
+                        <th>Total Pins</th>
+                        <th>Total Pins + Handicap</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="team in teamData">
+                        <td>{{team.Position}}</td>
+                        <td>{{team.TeamName}}</td>
+                        <td>{{team.TotalPins}}</td>
+                        <td>{{team.TotalPinsPlusHandicap}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
+        </div>-->
+    </div>
 </div>

@@ -11,6 +11,7 @@
       // {Id: '3', Name: 'Team 3'}
       //];
 
+      $scope.teamData = {};
       var onTeamStandings = function (data) {
          $scope.teamData = data;
       };

@@ -5,9 +5,9 @@
         
         {{ error }}
         <!-- Angular-UI Typeahead -->
-        <input type="text" ng-model="asyncSelected"
+        <input type="text" ng-model="bowlerSelected"
                typeahead-on-select="getBowlersLeagues($item)"
-               id="{{bowler.Id}}"
+               id="bowler.Id"
                placeholder="Type in a bowler's name"
                typeahead="bowler.FullName for bowler in getBowlers($viewValue)"
                typeahead-loading="loadingBowlers"
@@ -22,13 +22,13 @@
             </button>
             <ul class="dropdown-menu" role="menu">
                 <li ng-repeat="team in bowlersTeams">
-                    <a href="#" is-open="status.isopen" id="{{team.Id}}" ng-click="showBowlerData($event, bowler.Id, team.Id)">{{team.Name}}</a>
+                    <a href="#" is-open="status.isopen" id="{{team.Id}}" ng-click="showBowlerData($event, bowlerIdSelected, team.Id)">{{team.Name}}</a>
                 </li>
             </ul>
         </div>
         
 
-        <h3>{{showBowlerData.BowlerName}}</h3>
+        <h3>{{bowlerData.Average}}</h3>
         
     </div>
 

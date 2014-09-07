@@ -44,12 +44,21 @@
       };
 
       $scope.getBowlersLeagues = function ($item) {
+         //Persist the Id of the bowler selected to be used for future calls
+         $scope.bowlerIdSelected = $item.Id;
+         //Get the leagues for the bowler selected
          bowling.getBowlerLeagues($item.Id)
                   .then(onGetBowlersLeagues, onGetBowlersLeaguesError);
       }
 
+      //Angular databinding requires values being bound to be defined initially so it can know when changes have been made     
+      $scope.bowlerData = {};
       var onBowlerStandings = function (data) {
          $scope.bowlerData = data;
+
+         //Alternate method - Alert Angular that binding changes have been made
+         //$scope.$apply();
+
       };
 
       var onBowlerStandingsError = function (response) {
@@ -63,7 +72,7 @@
             isopen: false
          };
 
-         if (bowlerId === null) {
+         if (bowlerId === null || teamId === null) {
             return;
          }
          //Prevent default processing from occurring on the dropdown - this prevents any navigation from the anchor tag.
