@@ -54,3 +54,23 @@ textarea {
     height: 300px;
 }
 
+/*.form-horizontal .control-label{
+   text-align:left;
+}*/
+
+.dropdown-menu {
+   cursor: pointer;
+}
+
+.form-horizontal {
+	overflow: hidden;
+	background: #FFFFFF;
+	border: 5px solid #ddd;
+   border-radius: 4px 4px 0 0;
+}
+
+.form-group {
+   padding-left: 10px;
+   margin-bottom: 5px;
+} 
+

@@ -27,8 +27,34 @@
             </ul>
         </div>
         
-
-        <h3>{{bowlerData.Average}}</h3>
+        <div class="padding10">
+            <form class="form-horizontal col-md-6" role="form">
+                <div class="form-group">
+                    <label for="bowlerName" class="control-label">Name:</label>
+                    <div>
+                        <p id="bowlerName" class="col-sm-6 form-control-static">{{bowlerData.BowlerName}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bowerTeam" class="control-label">Team Name:</label>
+                    <div>
+                        <p id="bowerTeam" class="col-sm-6 form-control-static">{{bowlerData.TeamName}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bowlerAverage" class="control-label">Average:</label>
+                    <div>
+                        <p id="bowlerAverage" class="col-sm-6 form-control-static">{{bowlerData.Average}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bowlerHighGame" class="control-label">High Game:</label>
+                    <div>
+                        <p id="bowlerHighGame" class="col-sm-6 form-control-static">{{bowlerData.HighGame}}</p>
+                    </div>
+                </div>
+            </form>
+        </div>
         
     </div>
 
