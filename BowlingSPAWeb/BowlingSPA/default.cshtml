@@ -69,9 +69,9 @@
             The default bootstrap template/data area is not used; the tabs are just leveraged visually along with the JS to activate upon selection*@
             <div>
                 <ul class="nav nav-tabs" role="tablist" id="myTab">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#/teams">Teams</a></li>
-                    <li><a href="#/bowlers">Bowlers</a></li>
+                    <li class="active"><a href="#" data-target="#">Home</a></li>
+                    <li><a href="#/teams" data-target="#">Teams</a></li>
+                    <li><a href="#/bowlers" data-target="#">Bowlers</a></li>
                 </ul>
 
                 <!-- Example row of columns -->
@@ -103,6 +103,29 @@
                 $('.nav-tabs li').removeClass('active'); // remove active class from tabs
                 $(this).addClass('active'); // add active class to clicked tab
             });
+
+            function setActiveTab() {
+                var hash = window.location.hash;
+
+                var activeTab = $('.nav-tabs a[href="' + hash + '"]');
+                if (activeTab.length) {
+                    activeTab.tab('show');
+                } else {
+                    $('.nav-tabs a:first').tab('show');
+                }
+            };
+
+            //If a bookmark was used to a particular page, make sure to activate the correct tab:
+            $(document).ready(function() {
+                setActiveTab();
+            });
+
+            //When history.pushState() activates the popstate event, switch to the currently
+            //selected tab aligning with the page being navigated to from history.
+            $(window).on('popstate', function () {
+                setActiveTab();
+            });
+
 
             @{
                 var apiUrl = ConfigurationManager.AppSettings["apiUrl"];
