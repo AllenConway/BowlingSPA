@@ -2,6 +2,7 @@
 (function () {
 
    //Declare a new Angular Module named 'BowlingSPA' for use throughout the app
+   //The module is the component that ties all of the other Angular application components together.
    var app = angular.module("BowlingSPA", ["ngRoute", "ngGrid", "ui.bootstrap"]);
 
    app.config(function ($routeProvider, $httpProvider) {

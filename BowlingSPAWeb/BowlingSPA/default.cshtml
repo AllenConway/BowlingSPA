@@ -5,6 +5,8 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
+@*The no-js class is used by the Modernizr feature detection library. When Modernizr loads, it replaces no-js with js. 
+  If JavaScript is disabled, the class remains. This allows you to write CSS which easily targets either condition.*@
 <html class="no-js">
  <!--<![endif]-->
 <head>
@@ -12,130 +14,135 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>League Bowling Manager</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*Use viewport tag to optimize viewing area for mobile devices - initial scaling with 1.0 value displays an unscaled web page*@
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0">*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-    <body ng-app="BowlingSPA">
+<body ng-app="BowlingSPA">
 
 
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Home</a>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Home</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right" role="form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="container">
+        <div class="jumbotron">
+            <!-- Heading Row -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="img-responsive img-rounded img-header" src="~/Content/Images/MainSPALogo.jpg" alt="MainLogo" />
                 </div>
-                <div class="navbar-collapse collapse">
-                    <form class="navbar-form navbar-right" role="form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Email" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" placeholder="Password" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-success">Sign in</button>
-                    </form>
-                </div><!--/.navbar-collapse -->
+                <!-- /.col-md-8 -->
+                <div class="col-md-8">
+                    <h1>League Bowling Manager</h1>
+                </div>
+                <!-- /.col-md-4 -->
             </div>
         </div>
-
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="container">
-            <div class="jumbotron">
-                <!-- Heading Row -->
-                <div class="row">
-                    <div class="col-md-4">
-                        <img class="img-responsive img-rounded img-header" src="~/Content/Images/MainSPALogo.jpg" alt="MainLogo" />
-                    </div>
-                    <!-- /.col-md-8 -->
-                    <div class="col-md-8">
-                        <h1>League Bowling Manager</h1>
-                    </div>
-                    <!-- /.col-md-4 -->
-                </div>
-            </div>
-        </div>
+    </div>
 
 
-        @*Bootstrap requires a containing element to wrap site contents and house our grid system*@
-        <div class="container">
+    @*Bootstrap requires a containing element to wrap site contents and house our grid system*@
+    <div class="container">
 
-            @*In the markup below, each tab has an associated URL (which will be appended to the parent URL) and a template that is loaded via Angular Routing.
+        @*In the markup below, each tab has an associated URL (which will be appended to the parent URL) and a template that is loaded via Angular Routing.
             The default bootstrap template/data area is not used; the tabs are just leveraged visually along with the JS to activate upon selection*@
-            <div>
-                <ul class="nav nav-tabs" role="tablist" id="myTab">
-                    <li class="active"><a href="#" data-target="#">Home</a></li>
-                    <li><a href="#/teams" data-target="#">Teams</a></li>
-                    <li><a href="#/bowlers" data-target="#">Bowlers</a></li>
-                </ul>
+        <div>
+            <ul class="nav nav-tabs" role="tablist" id="myTab">
+                <li class="active"><a href="#" data-target="#">Home</a></li>
+                <li><a href="#/teams" data-target="#">Teams</a></li>
+                <li><a href="#/bowlers" data-target="#">Bowlers</a></li>
+            </ul>
 
-                <!-- Example row of columns -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <!--Let it up to the Angular route provider to populate the view in the directive-->
-                        <div ng-view></div>
-                    </div>
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!--Let it up to the Angular route provider to populate the view in the directive-->
+                    <div ng-view></div>
                 </div>
+            </div>
 
-            </div> 
+        </div>
 
-            <hr>
+        <hr>
 
-            <footer>
-                <p>&copy; Awesome Sauce SPAs 2014</p>
-            </footer>
-        </div> <!-- /container -->
+        <footer>
+            <p>&copy; Awesome Sauce SPAs 2014</p>
+        </footer>
+    </div> <!-- /container -->
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/angular")
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/bundles/app")
-
-
-        <script type="text/javascript">
-
-            $('.nav-tabs li').on('click', function (event) {
-                $('.nav-tabs li').removeClass('active'); // remove active class from tabs
-                $(this).addClass('active'); // add active class to clicked tab
-            });
-
-            function setActiveTab() {
-                var hash = window.location.hash;
-
-                var activeTab = $('.nav-tabs a[href="' + hash + '"]');
-                if (activeTab.length) {
-                    activeTab.tab('show');
-                } else {
-                    $('.nav-tabs a:first').tab('show');
-                }
-            };
-
-            //If a bookmark was used to a particular page, make sure to activate the correct tab:
-            $(document).ready(function() {
-                setActiveTab();
-            });
-
-            //When history.pushState() activates the popstate event, switch to the currently
-            //selected tab aligning with the page being navigated to from history.
-            $(window).on('popstate', function () {
-                setActiveTab();
-            });
+    @*Reference the JavaScript files that we need at the bottom of the body tag
+      to allow the browser to render the DOM before it loads the JavaScript files*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
 
 
-            @{
-                var apiUrl = ConfigurationManager.AppSettings["apiUrl"];
+    <script type="text/javascript">
+
+        $('.nav-tabs li').on('click', function (event) {
+            $('.nav-tabs li').removeClass('active'); // remove active class from tabs
+            $(this).addClass('active'); // add active class to clicked tab
+        });
+
+        function setActiveTab() {
+            var hash = window.location.hash;
+
+            var activeTab = $('.nav-tabs a[href="' + hash + '"]');
+            if (activeTab.length) {
+                activeTab.tab('show');
+            } else {
+                $('.nav-tabs a:first').tab('show');
             }
-            Globals = {
-                apiUrl: '@apiUrl'
-            };
+        };
 
-        </script>
+        //If a bookmark was used to a particular page, make sure to activate the correct tab:
+        $(document).ready(function () {
+            setActiveTab();
+        });
 
-    </body>
+        //When history.pushState() activates the popstate event, switch to the currently
+        //selected tab aligning with the page being navigated to from history.
+        $(window).on('popstate', function () {
+            setActiveTab();
+        });
+
+
+        @{
+            var apiUrl = ConfigurationManager.AppSettings["apiUrl"];
+         }
+        Globals = {
+            apiUrl: '@apiUrl'
+        };
+
+    </script>
+
+</body>
+
+
 
 </html>

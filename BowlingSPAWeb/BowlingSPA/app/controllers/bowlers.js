@@ -88,6 +88,10 @@
 
    };
 
+   //Register this controller with the app module. That way the html can find the controller without 
+   //needing to put the controller function in the global namespace of the application.
+   //Note: To prevent the minification process from shortening the parameter names, explicitly provide
+   //list of parameter names as strings as the second parameter to the controller registration
    app.controller("BowlersController", ["$scope", "$http", "bowling", BowlersController]);
 
 }());
