@@ -14,9 +14,9 @@ using System.Linq.Expressions;
 namespace BowlingSPAService.Repository.Repositories
 {
     /// <summary>
-    /// Generic repository implementation to support an Entity Framework implementation using DBContext.
+    /// This is a generic repository implementation to support an Entity Framework implementation using DBContext.
     /// </summary>
-    /// <remarks>An implementation derived from the GenericRepository.cs found on GitHub: http://bit.ly/1CscdRp </remarks>
+    /// <remarks>This is an abridged class implementation derived from the GenericRepository.cs found on GitHub: http://bit.ly/1CscdRp </remarks>
     public class Repository : IRepository
     {
         internal DbContext Context;
@@ -44,38 +44,6 @@ namespace BowlingSPAService.Repository.Repositories
                 throw new ArgumentNullException("entity");
             }
             Context.Set<TEntity>().Add(entity);
-        }
-
-        /// <summary>
-        /// Attaches the specified entity
-        /// </summary>
-        /// <param name="entity" type="TEntity"></param>
-        public void Attach<TEntity>(TEntity entity) where TEntity : class
-        {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-            Context.Set<TEntity>().Attach(entity);
-        }
-
-        /// <summary>
-        /// Counts the specified entities.
-        /// </summary>
-        /// <returns>int</returns>
-        public int Count<TEntity>() where TEntity : class
-        {
-            return Context.Set<TEntity>().Count();
-        }
-
-        /// <summary>
-        /// Counts entities with the specified criteria.
-        /// </summary>
-        /// <param name="criteria" type="Expression"></param>
-        /// <returns>int</returns>
-        public int Count<TEntity>(Expression<Func<TEntity, bool>> criteria) where TEntity : class
-        {
-            return Context.Set<TEntity>().Count(criteria);
         }
 
         /// <summary>
@@ -125,15 +93,6 @@ namespace BowlingSPAService.Repository.Repositories
         }
 
         /// <summary>
-        /// Sets the entity state to modified to indicate it needs updating and saved.
-        /// </summary>
-        /// <param name="entity" type="TEntity"></param>
-        public void Edit<TEntity>(TEntity entity) where TEntity : class
-        {
-            Context.Entry(entity).State = EntityState.Modified;
-        }
-
-        /// <summary>
         /// Executes a raw SQL command against the repository
         /// </summary>
         /// <param name="query" type="string"></param>
@@ -162,88 +121,6 @@ namespace BowlingSPAService.Repository.Repositories
         }
 
         /// <summary>
-        /// Finds one entity based on provided expression criteria.
-        /// </summary>
-        /// <param name="criteria" type="Expression"></param>
-        /// <returns>TEntity</returns>
-        public TEntity FindOne<TEntity>(Expression<Func<TEntity, bool>> criteria) where TEntity : class
-        {
-            return Context.Set<TEntity>().Where(criteria).FirstOrDefault();
-        }
-
-        /// <summary>
-        /// Takes the first entity for the specified predicate.
-        /// </summary>
-        /// <param name="predicate" type="Expression"></param>
-        /// <returns>TEntity</returns>
-        public TEntity First<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class
-        {
-            return Context.Set<TEntity>().First(predicate);
-        }
-
-        /// <summary>
-        /// Gets the specified ordered by the expression specified.
-        /// </summary>
-        /// <typeparam name="TOrderBy"></typeparam>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <param name="orderBy" type="Expression"></param>
-        /// <param name="pageIndex" type="int"></param>
-        /// <param name="pageSize" type="int"></param>
-        /// <param name="sortOrder" type="SortOrder">(Ascending/Descending)</param>
-        /// <returns>IEnumerable&lt;TEntity&gt;</returns>
-        public IEnumerable<TEntity> Get<TEntity, TOrderBy>(Expression<Func<TEntity, TOrderBy>> orderBy, int pageIndex,
-            int pageSize, SortOrder sortOrder = SortOrder.Ascending) where TEntity : class
-        {
-
-            if (sortOrder == SortOrder.Ascending)
-            {
-                return
-                    Context.Set<TEntity>().OrderBy(orderBy).Skip((pageIndex - 1) * pageSize).Take(pageSize).AsEnumerable();
-            }
-            return
-                Context.Set<TEntity>()
-                    .OrderByDescending(orderBy)
-                    .Skip((pageIndex - 1) * pageSize)
-                    .Take(pageSize)
-                    .AsEnumerable();
-        }
-
-        /// <summary>
-        /// Gets all of the entities for the specified criteria
-        /// </summary>
-        /// <typeparam name="TOrderBy"></typeparam>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <param name="criteria" type="Expression"></param>
-        /// <param name="orderBy" type="Expression"></param>
-        /// <param name="pageIndex" type="int"></param>
-        /// <param name="pageSize" type="int"></param>
-        /// <param name="sortOrder" type="SortOrder">(Ascending/Descending)</param>
-        /// <returns>IEnumerable&lt;TEntity&gt;</returns>
-        public IEnumerable<TEntity> Get<TEntity, TOrderBy>(Expression<Func<TEntity, bool>> criteria,
-            Expression<Func<TEntity, TOrderBy>> orderBy, int pageIndex, int pageSize,
-            SortOrder sortOrder = SortOrder.Ascending) where TEntity : class
-        {
-
-            if (sortOrder == SortOrder.Ascending)
-            {
-                return
-                    Context.Set<TEntity>()
-                        .Where(criteria)
-                        .OrderBy(orderBy)
-                        .Skip((pageIndex - 1) * pageSize)
-                        .Take(pageSize)
-                        .AsEnumerable();
-            }
-            return
-                Context.Set<TEntity>()
-                    .Where(criteria)
-                    .OrderByDescending(orderBy)
-                    .Skip((pageIndex - 1) * pageSize)
-                    .Take(pageSize)
-                    .AsEnumerable();
-        }
-
-        /// <summary>
         /// Gets a collection of all the entities
         /// </summary>
         /// <returns>IEnumerable&lt;TEntity&gt;</returns>
@@ -260,23 +137,6 @@ namespace BowlingSPAService.Repository.Repositories
         public TEntity GetByID<TEntity>(object id) where TEntity : class
         {
             return Context.Set<TEntity>().Find(id);
-        }
-
-        /// <summary>
-        /// Gets entity by key.
-        /// </summary>
-        /// <param name="keyValue"></param>
-        /// <returns>TEntity</returns>
-        public TEntity GetByKey<TEntity>(object keyValue) where TEntity : class
-        {
-            EntityKey key = GetEntityKey<TEntity>(keyValue);
-
-            object originalItem;
-            if (((IObjectContextAdapter)Context).ObjectContext.TryGetObjectByKey(key, out originalItem))
-            {
-                return (TEntity)originalItem;
-            }
-            return default(TEntity);
         }
 
         /// <summary>
@@ -309,16 +169,6 @@ namespace BowlingSPAService.Repository.Repositories
         }
 
         /// <summary>
-        /// Gets one entity based on matching criteria
-        /// </summary>
-        /// <param name="criteria" type="Expression"></param>
-        /// <returns>TEntity</returns>
-        public TEntity Single<TEntity>(Expression<Func<TEntity, bool>> criteria) where TEntity : class
-        {
-            return Context.Set<TEntity>().Single<TEntity>(criteria);
-        }
-
-        /// <summary>
         /// Updates changes of the entity provided and changes its state to 'EntityState.Modified'.
         /// SaveChanges must still be called (UoW) to save the entity to the DB.
         /// </summary>
@@ -327,20 +177,6 @@ namespace BowlingSPAService.Repository.Repositories
         {
             Context.Set<TEntity>().Attach(entity);
             Context.Entry(entity).State = EntityState.Modified;
-        }
-
-        /// <summary>
-        /// Gets the entity key
-        /// </summary>
-        /// <param name="keyValue" type="object"></param>
-        /// <returns>EntityKey</returns>
-        private EntityKey GetEntityKey<TEntity>(object keyValue) where TEntity : class
-        {
-            string entitySetName = GetEntityName<TEntity>();
-            ObjectSet<TEntity> objectSet = ((IObjectContextAdapter)Context).ObjectContext.CreateObjectSet<TEntity>();
-            string keyPropertyName = objectSet.EntitySet.ElementType.KeyMembers[0].ToString();
-            var entityKey = new EntityKey(entitySetName, new[] { new EntityKeyMember(keyPropertyName, keyValue) });
-            return entityKey;
         }
 
         /// <summary>

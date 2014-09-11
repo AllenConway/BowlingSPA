@@ -32,8 +32,6 @@ namespace BowlingSPAService.WebAPI.Controllers.api
             var teams = this.unitOfWork.Repository.GetQuery<Team>(x => x.LeagueId == leagueId)
                                                                         .Include(x => x.Scores).ToList();
 
-            //var nteams = teams.OrderBy(x => x.Scores.Select(y => y.Pins)).ToList();
-
             //Calculate the league stats
             var league = new League();
             return league.CalculateLeagueStats(teams);

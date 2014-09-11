@@ -10,6 +10,7 @@ namespace BowlingSPAService.Repository.RepoTransactions
     /// All this class needs is a Save method and a property for each repository. Each repository property returns a repository instance that has been instantiated 
     /// using the same database context instance as the other repository instances.
     /// </summary>
+    /// <remarks> Additional information: http://bit.ly/1dbKtkL </remarks>
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext dbContext;
@@ -18,8 +19,8 @@ namespace BowlingSPAService.Repository.RepoTransactions
         /// Default constructor taking in an injected instance of Repository and
         /// DBContext for persistence via Entity Framework.
         /// </summary>
-        /// <param name="repository" type="IRepository"></param>
         /// <param name="dbContext" type="DbContext"></param>
+        /// <param name="repository" type="IRepository"></param>
         public UnitOfWork(DbContext dbContext, IRepository repository)
         {
             this.dbContext = dbContext;
