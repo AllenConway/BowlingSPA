@@ -1,9 +1,13 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using BowlingSPAService.Model.DomainModels;
 using BowlingSPAService.Model.EntityModels;
 using BowlingSPAService.Repository.RepoTransactions;
+using Microsoft.Ajax.Utilities;
 
 namespace BowlingSPAService.WebAPI.Controllers.api
 {
@@ -28,6 +32,12 @@ namespace BowlingSPAService.WebAPI.Controllers.api
         [Route("")]
         public BowlerStats Get(int bowlerId, int teamId)
         {
+
+            if (bowlerId == 0 || teamId == 0)
+            {
+                return new BowlerStats();
+                //return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            }
 
             //Get all of the scores for the bowler on the team specified
             var bowlerScores = this.unitOfWork.Repository.GetQuery<Score>(x => x.BowlerId == bowlerId  && x.TeamId == teamId)
