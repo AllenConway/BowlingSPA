@@ -3,6 +3,7 @@
 
     //export var app :ng.IModule = angular.module("BowlingSPA");
 
+    //Augment $scope with our own types so that Angular understands and we get type checking
     export interface BowlersScope extends ng.IScope {
         error: string;
         getBowlers(val: any): any;
