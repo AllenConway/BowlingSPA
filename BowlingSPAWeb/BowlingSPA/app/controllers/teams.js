@@ -3,7 +3,7 @@
 
    var app = angular.module("BowlingSPA");
 
-   var TeamsController = function ($scope, bowling) {
+   var TeamsController = function ($scope, bowlingService) {
 
       //$scope.teams = [
       // {Id: '1', Name: 'Team 1'},
@@ -36,7 +36,7 @@
          $event.preventDefault();
 
 
-         bowling.getLeagueStandings(team.Id)
+         bowlingService.getLeagueStandings(team.Id)
             .then(onTeamStandings, onTeamStandingsError);
          //$scope.userName = "Split Happens";
       };
@@ -49,7 +49,7 @@
          $scope.error = "Could not fetch the leagues";
       };
 
-      bowling.getLeagues()
+      bowlingService.getLeagues()
          .then(onLeagues, onLeaguesError);
 
 
@@ -73,6 +73,6 @@
 
    };
 
-   app.controller("TeamsController", ["$scope", "bowling", TeamsController]);
+   app.controller("TeamsController", ["$scope", "bowlingService", TeamsController]);
 
 }());

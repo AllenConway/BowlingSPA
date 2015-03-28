@@ -1,5 +1,7 @@
-﻿module BowlingSPA.Controllers {
-    'use strict'
+﻿/// <reference path="../_refs.ts" />
+
+module BowlingSPA.Controllers {
+    'use strict';
 
     //export var app :ng.IModule = angular.module("BowlingSPA");
 
@@ -19,8 +21,8 @@
         private _apiResourceUrl: string;
         private _http: ng.IHttpService;
 
-        static $inject = ["$scope", "$http", "bowling"];
-        constructor($scope: BowlersScope, $http: ng.IHttpService, bowling) {
+        static $inject = ["$scope", "$http", "bowlingService"];
+        constructor($scope: BowlersScope, $http: ng.IHttpService, bowlingService) {
             
             var onGetBowlers = (data: any) => {
                 return data;
@@ -33,7 +35,7 @@
             // Any function returning a promise object can be used to load values asynchronously
             $scope.getBowlers = (val: any) => {
 
-                //   bowling.getBowlerMatch(val)
+                //   bowlingService.getBowlerMatch(val)
                 //      .then(function(response) {
                 //      return response;
                 //   }, onGetBowlersError);
@@ -64,7 +66,7 @@
                 //Persist the Id of the bowler selected to be used for future calls
                 $scope.bowlerIdSelected = $item.Id;
                 //Get the leagues for the bowler selected
-                bowling.getBowlerLeagues($item.Id)
+                bowlingService.getBowlerLeagues($item.Id)
                     .then(onGetBowlersLeagues, onGetBowlersLeaguesError);
             }
 
@@ -98,7 +100,7 @@
                 $event.preventDefault();
 
 
-                bowling.getBowlerStandings(bowlerId, teamId)
+                bowlingService.getBowlerStandings(bowlerId, teamId)
                     .then(onBowlerStandings, onBowlerStandingsError);
                 //$scope.userName = "Split Happens";
             };
