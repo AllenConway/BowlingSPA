@@ -3,7 +3,7 @@
 
    var app = angular.module("BowlingSPA");
 
-   var TeamsController = function ($scope, bowlingService) {
+   var TeamsController = function ($scope, bowling) {
 
       //$scope.teams = [
       // {Id: '1', Name: 'Team 1'},
@@ -36,7 +36,7 @@
          $event.preventDefault();
 
 
-         bowlingService.getLeagueStandings(team.Id)
+         bowling.getLeagueStandings(team.Id)
             .then(onTeamStandings, onTeamStandingsError);
          //$scope.userName = "Split Happens";
       };
@@ -49,7 +49,7 @@
          $scope.error = "Could not fetch the leagues";
       };
 
-      bowlingService.getLeagues()
+      bowling.getLeagues()
          .then(onLeagues, onLeaguesError);
 
 
@@ -73,10 +73,6 @@
 
    };
 
-   //Register this controller with the app module. That way the html can find the controller without 
-   //needing to put the controller function in the global namespace of the application.
-   //Note: To prevent the minification process from shortening the parameter names, explicitly provide
-   //list of parameter names as strings as the second parameter to the controller registration
-   app.controller("TeamsController", ["$scope", "bowlingService", TeamsController]);
+   app.controller("TeamsController", ["$scope", "bowling", TeamsController]);
 
 }());

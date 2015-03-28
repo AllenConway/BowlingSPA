@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -91,6 +94,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BowlerControllerTest.cs" />
+    <Compile Include="Controllers\BowlerStandingsControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\ValuesControllerTest.cs" />
@@ -102,10 +107,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BowlingSPAService.Model\BowlingSPAService.Model.csproj">
+      <Project>{FF9B8C03-1203-45E2-B8AA-D90DB50E3657}</Project>
+      <Name>BowlingSPAService.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BowlingSPAService.Repository\BowlingSPAService.Repository.csproj">
+      <Project>{67109198-5605-4DA2-9AB2-AA07AA685FB0}</Project>
+      <Name>BowlingSPAService.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BowlingSPAService.WebAPI\BowlingSPAService.WebAPI.csproj">
       <Project>{CD826FE6-FA2B-4F36-A0A0-92B40FFC1F20}</Project>
       <Name>BowlingSPAService.WebAPI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

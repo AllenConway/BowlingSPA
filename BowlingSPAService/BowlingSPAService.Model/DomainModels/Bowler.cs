@@ -24,7 +24,7 @@ namespace BowlingSPAService.Model.EntityModels
         {
             BowlerStats bowlerStats = new BowlerStats();
 
-            if (bowlerScores == null)
+            if (bowlerScores == null || !bowlerScores.Any())
                 return bowlerStats;
            
             var average = bowlerScores.Average(x => x.Pins);
