@@ -37,12 +37,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TypeLite">
-      <HintPath>..\packages\TypeLite.1.1.1.0\lib\net4\TypeLite.dll</HintPath>
-    </Reference>
-    <Reference Include="TypeLite.Net4">
-      <HintPath>..\packages\TypeLite.1.1.1.0\lib\net4\TypeLite.Net4.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainModels\Bowler.cs" />
@@ -72,30 +66,15 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Scripts\Manager.ttinclude" />
-    <None Include="Scripts\TypeLite.Net4.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TypeLite.Net4.d.ts</LastGenOutput>
-    </None>
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="EntityModels\BowlingStatsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BowlingStatsModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\TypeLite.Net4.d.ts">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TypeLite.Net4.tt</DependentUpon>
-    </TypeScriptCompile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
