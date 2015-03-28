@@ -178,6 +178,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\services\bowling.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -1001,7 +1002,6 @@
     <Content Include="app\controllers\teams.js" />
     <Content Include="app\partials\bowlers.html" />
     <Content Include="app\partials\teams.html" />
-    <Content Include="app\services\bowling.js" />
     <Content Include="app\_refs.js">
       <DependentUpon>_refs.ts</DependentUpon>
     </Content>

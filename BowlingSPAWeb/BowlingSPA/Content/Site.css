@@ -78,6 +78,6 @@ textarea {
  But in AngularJS adding empty href attributes to link tags will cause unwanted route changes. This is why we need to remove 
  empty href attributes from directive templates and as a result styling is not applied correctly. 
  The remedy is simple, just add the following styling:*/
-.nav, .pagination, .carousel, .panel-title a {
+/*.nav, .pagination, .carousel, .panel-title a {
     cursor: pointer;
-}
+}*/
