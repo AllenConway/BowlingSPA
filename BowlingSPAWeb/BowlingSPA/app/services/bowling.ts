@@ -19,9 +19,7 @@ module BowlingSPA.Services {
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
             return this._http.get(this._apiResourceUrl + '/Leagues')
-                .then(function (response) {
-                    return response.data;
-                });
+                .then(response => response.data);
         }
 
         public getBowlerLeagues(bowlerId): any {
@@ -29,9 +27,7 @@ module BowlingSPA.Services {
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
             return this._http.get(this._apiResourceUrl + '/BowlerLeagues/' + bowlerId)
-                .then(function (response) {
-                    return response.data;
-                });
+                .then(response => response.data);
         }
 
         public getBowlerStandings(bowlerId, teamId): any {
@@ -39,9 +35,7 @@ module BowlingSPA.Services {
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
             return this._http.get(this._apiResourceUrl + '/BowlerStandings', { params: { bowlerId: bowlerId, teamId: teamId } })
-                .then(function (response) {
-                    return response.data;
-                });
+                .then(response => response.data);
         }
 
         public getBowlerMatch(val): any {
@@ -49,9 +43,9 @@ module BowlingSPA.Services {
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
             return this._http.get(this._apiResourceUrl + '/Bowler', { params: { name: val } })
-                .then(function (response) {
+                .then(response => {
                     var matchingBowlers = [];
-                    angular.forEach(response.data, function (item) {
+                    angular.forEach(response.data, item => {
                         matchingBowlers.push(item.FullName);
                     });
                     return matchingBowlers;
@@ -63,9 +57,7 @@ module BowlingSPA.Services {
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
             return this._http.get(this._apiResourceUrl + '/Bowler')
-                .then(function (response) {
-                    return response.data;
-                });
+                .then(response => response.data);
         }
 
         public getLeagueStandings(leagueId): any {
@@ -73,9 +65,7 @@ module BowlingSPA.Services {
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
             return this._http.get(this._apiResourceUrl + '/LeagueStandings/' + leagueId)
-                .then(function (response) {
-                    return response.data;
-                });
+                .then(response => response.data);
         }
 
     }

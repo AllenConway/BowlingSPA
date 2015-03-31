@@ -52,11 +52,6 @@
       bowlingService.getLeagues()
          .then(onLeagues, onLeaguesError);
 
-
-
-
-
-
       $scope.columns = [
           { field: 'Position', displayName: 'Position', width: "20%" },
           { field: 'TeamName', displayName: 'Team Name', width: "*" },
@@ -68,8 +63,6 @@
          data: 'teamData',
          columnDefs: 'columns'
       }
-
-      
 
    };
 

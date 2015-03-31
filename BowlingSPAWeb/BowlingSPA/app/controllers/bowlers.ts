@@ -22,7 +22,7 @@ module BowlingSPA.Controllers {
         private _http: ng.IHttpService;
 
         static $inject = ["$scope", "$http", "bowlingService"];
-        constructor($scope: BowlersScope, $http: ng.IHttpService, bowlingService) {
+        constructor($scope: BowlersScope, $http: ng.IHttpService, bowlingService: BowlingSPA.Services.BowlingService) {
             
             var onGetBowlers = (data: any) => {
                 return data;
