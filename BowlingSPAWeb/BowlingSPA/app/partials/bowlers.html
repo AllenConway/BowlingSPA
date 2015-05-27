@@ -2,60 +2,90 @@
 
     <!--Bootstrap Container exists on default HTML view housing any grid system elements in this view-->
     <div class="padding10">
-        
+
         {{ error }}
-        <!-- Angular-UI Typeahead -->
-        <input type="text" ng-model="bowlerSelected"
-               typeahead-on-select="getBowlersLeagues($item)"
-               id="bowler.Id"
-               placeholder="Type in a bowler's name"
-               typeahead="bowler.FullName for bowler in getBowlers($viewValue)"
-               typeahead-loading="loadingBowlers"
-               typeahead-min-length="2"
-               class="form-control">
-        <i ng-show="loadingBowlers" class="glyphicon glyphicon-refresh"></i>
-        
-        <!--Angular-UI Button style dropdown-->
-        <div class="btn-group padding10" dropdown is-open="status.isopen">
-            <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="!bowlersTeams">
-                Select a Team <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li ng-repeat="team in bowlersTeams">
-                    <a href="#" is-open="status.isopen" id="{{team.Id}}" ng-click="showBowlerData($event, bowlerIdSelected, team.Id)">{{team.Name}}</a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="padding10">
-            <form class="form-horizontal col-md-6" role="form">
-                <div class="form-group">
-                    <label for="bowlerName" class="control-label">Name:</label>
-                    <div>
-                        <p id="bowlerName" class="col-sm-6 form-control-static">{{bowlerData.BowlerName}}</p>
+
+        <div class="container-fluid">
+
+            <form role="form">
+
+                <div class="row">
+
+                    <!--<label for="bowler.Id" class="col-xs-2 padding-md">Bowler's Name</label>-->
+
+                    <div class="col-xs-5">
+                        <div class="row">
+                            <div class="col-xs-11 padding-right-0">
+                                <!-- Angular-UI Typeahead -->
+                                <input type="text" ng-model="bowlerSelected"
+                                       typeahead-on-select="getBowlersLeagues($item)"
+                                       id="bowler.Id"
+                                       placeholder="Type in a bowler's name"
+                                       typeahead="bowler.FullName for bowler in getBowlers($viewValue)"
+                                       typeahead-loading="loadingBowlers"
+                                       typeahead-min-length="2"
+                                       class="form-control">
+                            </div>
+                            <div class="col-xs-1 padding-top-sm padding-right-0 padding-left-0">
+                                <i ng-show="loadingBowlers" class="glyphicon glyphicon-refresh"></i>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="bowerTeam" class="control-label">Team Name:</label>
-                    <div>
-                        <p id="bowerTeam" class="col-sm-6 form-control-static">{{bowlerData.TeamName}}</p>
+
+                    <div class="col-xs-2 padding-left-0">
+                        <button type="button" class="btn btn-default btn-md">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Bowler
+                        </button>
                     </div>
+
                 </div>
-                <div class="form-group">
-                    <label for="bowlerAverage" class="control-label">Average:</label>
-                    <div>
-                        <p id="bowlerAverage" class="col-sm-6 form-control-static">{{bowlerData.Average}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="bowlerHighGame" class="control-label">High Game:</label>
-                    <div>
-                        <p id="bowlerHighGame" class="col-sm-6 form-control-static">{{bowlerData.HighGame}}</p>
-                    </div>
-                </div>
+
             </form>
+
+            <!--Angular-UI Button style dropdown-->
+            <div class="btn-group padding10" dropdown is-open="status.isopen">
+                <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="!bowlersTeams">
+                    Select a Team <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li ng-repeat="team in bowlersTeams">
+                        <a href="#" is-open="status.isopen" id="{{team.Id}}" ng-click="showBowlerData($event, bowlerIdSelected, team.Id)">{{team.Name}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="padding10">
+                <form id="BowlerData" class="form-horizontal col-md-6" role="form">
+                    <div class="form-group">
+                        <label for="bowlerName" class="control-label">Name:</label>
+                        <div>
+                            <p id="bowlerName" class="col-sm-6 form-control-static">{{bowlerData.BowlerName}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bowerTeam" class="control-label">Team Name:</label>
+                        <div>
+                            <p id="bowerTeam" class="col-sm-6 form-control-static">{{bowlerData.TeamName}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bowlerAverage" class="control-label">Average:</label>
+                        <div>
+                            <p id="bowlerAverage" class="col-sm-6 form-control-static">{{bowlerData.Average}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bowlerHighGame" class="control-label">High Game:</label>
+                        <div>
+                            <p id="bowlerHighGame" class="col-sm-6 form-control-static">{{bowlerData.HighGame}}</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
         </div>
-        
+
     </div>
 
 </div>

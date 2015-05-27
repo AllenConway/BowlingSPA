@@ -10,11 +10,11 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 /* Set padding to display errors that occur during databinding */
 .padding-error {
@@ -62,7 +62,9 @@ textarea {
    cursor: pointer;
 }
 
-.form-horizontal {
+
+
+#BowlerData {
 	overflow: hidden;
 	background: #FFFFFF;
 	border: 5px solid #ddd;
@@ -72,7 +74,58 @@ textarea {
 .form-group {
    padding-left: 10px;
    margin-bottom: 5px;
-} 
+}
+
+/*@media (min-width: 768px) {
+   .form-inline .form-control {      
+      width: 25em;      
+   }
+}*/
+
+.padding-left-sm {
+   padding-left: 2px !important;
+   margin-left: 2px !important;
+}
+
+.padding-right-sm {
+   padding-right: 2px !important;
+   margin-right: 2px !important;
+}
+
+.padding-right-0 {
+   padding-right: 0 !important;
+   margin-right: 0 !important;
+}
+
+.padding-left-0 {
+   padding-left: 0 !important;
+   margin-left: 0 !important;
+}
+
+.padding-top-sm {
+   padding-top: 3px !important;
+   margin-top: 3px !important;
+}
+
+.padding-md {
+   padding: 5px !important;
+   margin: 5px !important;
+}
+
+.padding-lg {
+   padding: 15px !important;
+   margin: 15px !important;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+/*input[type=text],
+input[type=email] {
+  width: 25em;
+}*/
 
 /*Original Bootstrap's CSS depends on empty href attributes to style cursors for several components (pagination, tabs etc.). 
  But in AngularJS adding empty href attributes to link tags will cause unwanted route changes. This is why we need to remove 
