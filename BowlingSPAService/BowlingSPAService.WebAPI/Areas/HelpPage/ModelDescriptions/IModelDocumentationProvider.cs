@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace BowlingSPAService.Areas.HelpPage.ModelDescriptions
+namespace BowlingSPAService.WebAPI.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

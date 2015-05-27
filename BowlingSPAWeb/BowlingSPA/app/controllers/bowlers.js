@@ -20,7 +20,8 @@ var BowlingSPA;
                     //      return response;
                     //   }, onGetBowlersError);
                     _this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
-                    return $http.get(_this._apiResourceUrl + '/Bowler', { params: { name: val } }).then(function (response) {
+                    return $http.get(_this._apiResourceUrl + '/Bowler', { params: { name: val } })
+                        .then(function (response) {
                         //var matchingBowlers = [];
                         //angular.forEach(response.data, function (item) {
                         //   matchingBowlers.push(item.Id, item.FullName);
@@ -39,7 +40,8 @@ var BowlingSPA;
                     //Persist the Id of the bowler selected to be used for future calls
                     $scope.bowlerIdSelected = $item.Id;
                     //Get the leagues for the bowler selected
-                    bowlingService.getBowlerLeagues($item.Id).then(onGetBowlersLeagues, onGetBowlersLeaguesError);
+                    bowlingService.getBowlerLeagues($item.Id)
+                        .then(onGetBowlersLeagues, onGetBowlersLeaguesError);
                 };
                 //Angular databinding requires values being bound to be defined initially so it can know when changes have been made     
                 $scope.bowlerData = {};
@@ -63,7 +65,8 @@ var BowlingSPA;
                     //Another option supported by modern browsers is just to use href="" to prevent any navigation from occurring.
                     //Downside of this method is manipulating the DOM from controller and thus coupling the view and Controller
                     $event.preventDefault();
-                    bowlingService.getBowlerStandings(bowlerId, teamId).then(onBowlerStandings, onBowlerStandingsError);
+                    bowlingService.getBowlerStandings(bowlerId, teamId)
+                        .then(onBowlerStandings, onBowlerStandingsError);
                     //$scope.userName = "Split Happens";
                 };
             }

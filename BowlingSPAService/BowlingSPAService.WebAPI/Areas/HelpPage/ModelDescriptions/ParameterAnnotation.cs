@@ -1,6 +1,6 @@
 using System;
 
-namespace BowlingSPAService.Areas.HelpPage.ModelDescriptions
+namespace BowlingSPAService.WebAPI.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

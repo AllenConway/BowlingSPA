@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using BowlingSPAService.Areas.HelpPage.ModelDescriptions;
-using BowlingSPAService.Areas.HelpPage.Models;
+using BowlingSPAService.WebAPI.Areas.HelpPage.ModelDescriptions;
+using BowlingSPAService.WebAPI.Areas.HelpPage.Models;
 
-namespace BowlingSPAService.Areas.HelpPage.Controllers
+namespace BowlingSPAService.WebAPI.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

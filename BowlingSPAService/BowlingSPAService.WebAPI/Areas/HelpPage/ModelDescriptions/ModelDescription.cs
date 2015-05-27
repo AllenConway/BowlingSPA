@@ -1,6 +1,6 @@
 using System;
 
-namespace BowlingSPAService.Areas.HelpPage.ModelDescriptions
+namespace BowlingSPAService.WebAPI.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using BowlingSPAService.Areas.HelpPage.ModelDescriptions;
+using BowlingSPAService.WebAPI.Areas.HelpPage.ModelDescriptions;
 
-namespace BowlingSPAService.Areas.HelpPage
+namespace BowlingSPAService.WebAPI.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
