@@ -16,7 +16,7 @@ namespace BowlingSPAService.Repository.Repositories
     public interface IRepository
     {
 
-        void Add<TEntity>(TEntity entity) where TEntity : class;        
+        TEntity Add<TEntity>(TEntity entity) where TEntity : class;        
 
         void Delete<TEntity>(object id) where TEntity : class;
 

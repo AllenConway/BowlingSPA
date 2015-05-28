@@ -37,13 +37,13 @@ namespace BowlingSPAService.Repository.Repositories
         /// Adds the specified entity
         /// </summary>
         /// <param name="entity" type="TEntity"></param>
-        public void Add<TEntity>(TEntity entity) where TEntity : class
+        public TEntity Add<TEntity>(TEntity entity) where TEntity : class
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
-            Context.Set<TEntity>().Add(entity);
+            return Context.Set<TEntity>().Add(entity);
         }
 
         /// <summary>
