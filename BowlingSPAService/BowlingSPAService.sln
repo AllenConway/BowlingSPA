@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingSPAService.Tests", "BowlingSPAService.Tests\BowlingSPAService.Tests.csproj", "{195C3B42-7BD3-4EAA-959F-DCE06820672B}"
 EndProject
@@ -18,6 +18,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingSPAService.Model", "BowlingSPAService.Model\BowlingSPAService.Model.csproj", "{FF9B8C03-1203-45E2-B8AA-D90DB50E3657}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Model", "2. Model", "{A9D5F522-3D6B-4379-8E2E-98EC40146C89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5FDDACD3-BCF1-40E0-ABF2-036B82428D58}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{B78089DE-0700-40C5-AABB-CEFFC6D7EA91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Testing Metrics", "Unit Testing Metrics", "{5BD80903-CE7D-4B9D-B367-3D413A5123A2}"
+	ProjectSection(SolutionItems) = preProject
+		Unit Testing Metrics\GenerateUnitTestMetrics.bat = Unit Testing Metrics\GenerateUnitTestMetrics.bat
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,5 +62,6 @@ Global
 		{67109198-5605-4DA2-9AB2-AA07AA685FB0} = {C8D3714D-234C-46E4-ADCD-F4D7233DCB99}
 		{CD826FE6-FA2B-4F36-A0A0-92B40FFC1F20} = {0D006B49-C4F0-4DF8-977E-0BF2C7F27991}
 		{FF9B8C03-1203-45E2-B8AA-D90DB50E3657} = {A9D5F522-3D6B-4379-8E2E-98EC40146C89}
+		{5BD80903-CE7D-4B9D-B367-3D413A5123A2} = {B78089DE-0700-40C5-AABB-CEFFC6D7EA91}
 	EndGlobalSection
 EndGlobal
