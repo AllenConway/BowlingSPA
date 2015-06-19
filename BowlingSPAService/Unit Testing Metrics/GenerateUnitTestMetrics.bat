@@ -28,7 +28,7 @@ exit /b %errorlevel%
 -register:user ^
 -target:"%VS120COMNTOOLS%\..\IDE\mstest.exe" ^
 -targetargs:"/testcontainer:\"%~dp0..\BowlingSPAService.Tests\bin\Debug\BowlingSPAService.Tests.dll\" /resultsfile:\"%~dp0BowlingSPAService.trx\"" ^
--filter:"+[BowlingSPAService*]* -[BowlingSPAService.Tests]*" ^
+-filter:"+[BowlingSPAService*]* -[BowlingSPAService.Tests]* -[*]BowlingSPAService.WebAPI.Areas.HelpPage.* -[*]BowlingSPAService.BundleConfig -[*]BowlingSPAService.FilterConfig -[*]BowlingSPAService.RouteConfig -[*]BowlingSPAService.WebAPI.App_Start.Bootstrapper -[*]BowlingSPAService.WebAPI.UnityConfig -[*]BowlingSPAService.WebAPI.WebApiApplication -[*]BowlingSPAService.WebApiConfig" ^
 -mergebyhash ^
 -skipautoprops ^
 -output:"%~dp0\GeneratedReports\BowlingSPAServiceReport.xml"

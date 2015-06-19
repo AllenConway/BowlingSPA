@@ -17,10 +17,10 @@ namespace BowlingSPAService.WebAPI.Controllers.api
         }
 
         /// <summary>
-        /// Returns a collection of bowler's that match the name value provided 
+        /// Returns a collection of team data that match the bowlerId value provided 
         /// </summary>
         /// <param name="bowlerId" type="int"></param>
-        /// <returns></returns>
+        /// <returns>IEnumerable&lt;Team&gt;</returns>
         [Route("{bowlerId}")]
         public IEnumerable<Team> Get(int bowlerId)
         {

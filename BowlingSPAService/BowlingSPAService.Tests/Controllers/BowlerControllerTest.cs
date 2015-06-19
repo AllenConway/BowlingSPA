@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using BowlingSPAService.Model.EntityModels;
 using BowlingSPAService.Repository.RepoTransactions;
 using BowlingSPAService.WebAPI.Controllers.api;
@@ -56,7 +59,31 @@ namespace BowlingSPAService.Tests.Controllers
             repositoryMock.Verify(x => x.Repository.GetAll<Bowler>(), Times.Once); // Ensure repository was called
             Assert.IsNotNull(result); // Test to make sure return is not null
             Assert.IsInstanceOfType(result, typeof(IList<Bowler>));  // Test type
-            Assert.AreEqual(result, bowlers); // Test the return is identical to what we expected
+            CollectionAssert.AreEqual(result.ToList(), bowlers.ToList()); // Test the return is identical to what we expected
+
+        }
+
+        [TestMethod]
+        public void BowlerController_GetWithValidName_ReturnsSingleBowlers()
+        {
+            //Arrange
+            const string bowlerName = "Allen";
+            var repositoryMock = new Mock<IUnitOfWork>();
+            var singleBowler = bowlers.Where(x => x.FirstName == bowlerName).AsQueryable();
+            //Setup mock to dictate behavior of repository and it will return single bowler matching name used in test when called:
+            repositoryMock.Setup(x => x.Repository.GetQuery<Bowler>(It.IsAny<Expression<Func<Bowler, bool>>>())).Returns(singleBowler);
+            //Create instance of bowler controller that will have mock repository injected; this is what will be used during the unit test
+            var bowlerController = new BowlerController(repositoryMock.Object);
+
+
+            //Act
+            var result = bowlerController.Get(bowlerName);
+
+            //Assert
+            repositoryMock.Verify(x => x.Repository.GetQuery<Bowler>(It.IsAny<Expression<Func<Bowler, bool>>>()), Times.Once); // Ensure repository was called
+            Assert.IsNotNull(result); // Test to make sure return is not null
+            Assert.IsInstanceOfType(result, typeof(IList<Bowler>));  // Test type
+            CollectionAssert.AreEqual(result.ToList(), singleBowler.ToList()); // Test the return collection (with a single bowler) is identical to what we expected
 
         }
        
