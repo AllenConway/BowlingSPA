@@ -27,13 +27,14 @@ namespace BowlingSPAService.WebAPI.Controllers.api
 
         /// <summary>
         /// Returns a collection of bowler's that match the name value provided 
-        /// </summary>
-        /// <param name="id"></param>
+        /// </summary>        
+        /// <param name="name" type="string"></param>
         /// <returns></returns>
         [Route("")]
         public IEnumerable<Bowler> Get(string name)
         {
-            return this.unitOfWork.Repository.GetQuery<Bowler>(x => x.FirstName.Contains(name) || x.LastName.Contains(name)).ToList();
+            return this.unitOfWork.Repository.GetQuery<Bowler>(x => x.FirstName.Contains(name) || x.LastName.Contains(name))
+                                                               .Where(y => y.Scores.Any(z => z.Team != null)).ToList();
         }
 
         /// <summary>

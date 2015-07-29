@@ -31,6 +31,14 @@ module BowlingSPA {
                 templateUrl: "app/partials/bowlers.html",
                 controller: BowlingSPA.Controllers.BowlersController
             })
+            .when("/addbowler", {
+                templateUrl: "app/partials/addbowler.html",
+                controller: BowlingSPA.Controllers.AddBowlerController
+            })
+            .when("/leagues", {
+                templateUrl: "app/partials/leagues.html",
+                controller: BowlingSPA.Controllers.LeaguesController
+            })
             .otherwise({ redirectTo: "/landing" });
         }
     ]);

@@ -14,6 +14,7 @@ module BowlingSPA.Controllers {
         bowlerData: any;
         showBowlerData($event, bowlerId, teamId): any;
         status: any;
+        addbowler(): void;        
     }
 
     export class BowlersController {
@@ -21,9 +22,14 @@ module BowlingSPA.Controllers {
         private _apiResourceUrl: string;
         private _http: ng.IHttpService;
 
-        static $inject = ["$scope", "$http", "bowlingService"];
-        constructor($scope: BowlersScope, $http: ng.IHttpService, bowlingService: BowlingSPA.Services.BowlingService) {
-            
+        static $inject = ["$scope", "$http", "$location", "bowlingService"];
+
+        constructor(
+            $scope: BowlersScope,
+            $http: ng.IHttpService,
+            $location: ng.ILocationService,
+            bowlingService: BowlingSPA.Services.BowlingService) {
+
             var onGetBowlers = (data: any) => {
                 return data;
             };
@@ -40,7 +46,7 @@ module BowlingSPA.Controllers {
                 //      return response;
                 //   }, onGetBowlersError);
 
-                this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
+                this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
 
                 return $http.get(this._apiResourceUrl + '/Bowler', { params: { name: val } })
                     .then((response) => {
@@ -103,6 +109,10 @@ module BowlingSPA.Controllers {
                 bowlingService.getBowlerStandings(bowlerId, teamId)
                     .then(onBowlerStandings, onBowlerStandingsError);
                 //$scope.userName = "Split Happens";
+            };
+
+            $scope.addbowler = () => {
+                $location.path('/addbowler');
             };
 
         }

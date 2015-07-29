@@ -72,6 +72,7 @@
                     <li class="active"><a href="#" data-target="#">Home</a></li>
                     <li><a href="#/teams" data-target="#">Teams</a></li>
                     <li><a href="#/bowlers" data-target="#">Bowlers</a></li>
+                    <li><a href="#/leagues" data-target="#">Leagues</a></li>
                 </ul>
 
                 <!-- Example row of columns -->
@@ -87,7 +88,7 @@
             <hr>
 
             <footer>
-                <p>&copy; Awesome Sauce SPAs 2014</p>
+                <p>&copy; Awesome Sauce SPAs 2015</p>
             </footer>
         </div> <!-- /container -->
 
@@ -106,6 +107,10 @@
 
             function setActiveTab() {
                 var hash = window.location.hash;
+
+                if (hash === "#/addbowler") {
+                    hash = "#/bowlers";
+                }
 
                 var activeTab = $('.nav-tabs a[href="' + hash + '"]');
                 if (activeTab.length) {

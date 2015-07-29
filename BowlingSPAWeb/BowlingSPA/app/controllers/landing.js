@@ -6,7 +6,7 @@
 
    var LandingController = function ($scope) {
 
-      $scope.userName = "allen";
+      $scope.userName = "Allen";
 
       //$scope.tabs = [
       //  { title: "Home", href: "#" },

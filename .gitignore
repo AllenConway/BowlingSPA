@@ -6,8 +6,15 @@
 *.user
 *.sln.docstates
 
-# JS Map files
-*.map
+# Typescript Auto-generated files
+BowlingSPAWeb/BowlingSPA/app/*.js
+BowlingSPAWeb/BowlingSPA/app/*.js.map
+BowlingSPAWeb/BowlingSPA/app/controllers/*.js
+BowlingSPAWeb/BowlingSPA/app/controllers/*.js.map
+BowlingSPAWeb/BowlingSPA/app/models/*.js
+BowlingSPAWeb/BowlingSPA/app/models/*.js.map
+BowlingSPAWeb/BowlingSPA/app/services/*.js
+BowlingSPAWeb/BowlingSPA/app/services/*.js.map
 
 # Build results
 

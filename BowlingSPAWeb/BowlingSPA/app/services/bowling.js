@@ -8,24 +8,29 @@ var BowlingSPA;
             function BowlingService($http) {
                 this._http = $http;
             }
+            BowlingService.prototype.addBowler = function (bowler) {
+                this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
+                return this._http.post(this._apiResourceUrl + 'Bowler', bowler)
+                    .then(function (response) { return response.data; });
+            };
             BowlingService.prototype.getLeagues = function () {
                 this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
-                return this._http.get(this._apiResourceUrl + '/Leagues')
+                return this._http.get(this._apiResourceUrl + 'Leagues')
                     .then(function (response) { return response.data; });
             };
             BowlingService.prototype.getBowlerLeagues = function (bowlerId) {
                 this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
-                return this._http.get(this._apiResourceUrl + '/BowlerLeagues/' + bowlerId)
+                return this._http.get(this._apiResourceUrl + 'BowlerLeagues/' + bowlerId)
                     .then(function (response) { return response.data; });
             };
             BowlingService.prototype.getBowlerStandings = function (bowlerId, teamId) {
                 this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
-                return this._http.get(this._apiResourceUrl + '/BowlerStandings', { params: { bowlerId: bowlerId, teamId: teamId } })
+                return this._http.get(this._apiResourceUrl + 'BowlerStandings', { params: { bowlerId: bowlerId, teamId: teamId } })
                     .then(function (response) { return response.data; });
             };
             BowlingService.prototype.getBowlerMatch = function (val) {
                 this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
-                return this._http.get(this._apiResourceUrl + '/Bowler', { params: { name: val } })
+                return this._http.get(this._apiResourceUrl + 'Bowler', { params: { name: val } })
                     .then(function (response) {
                     var matchingBowlers = [];
                     angular.forEach(response.data, function (item) {

@@ -14,11 +14,19 @@ module BowlingSPA.Services {
             this._http = $http;
         }
 
+        public addBowler(bowler: BowlingSPAService.Model.EntityModels.Bowler): any {
+            
+            this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
+
+            return this._http.post(this._apiResourceUrl + 'Bowler', bowler)
+                .then(response => response.data);
+        }
+
         public getLeagues(): any {
 
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
-            return this._http.get(this._apiResourceUrl + '/Leagues')
+            return this._http.get(this._apiResourceUrl + 'Leagues')
                 .then(response => response.data);
         }
 
@@ -26,7 +34,7 @@ module BowlingSPA.Services {
 
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
-            return this._http.get(this._apiResourceUrl + '/BowlerLeagues/' + bowlerId)
+            return this._http.get(this._apiResourceUrl + 'BowlerLeagues/' + bowlerId)
                 .then(response => response.data);
         }
 
@@ -34,7 +42,7 @@ module BowlingSPA.Services {
 
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
-            return this._http.get(this._apiResourceUrl + '/BowlerStandings', { params: { bowlerId: bowlerId, teamId: teamId } })
+            return this._http.get(this._apiResourceUrl + 'BowlerStandings', { params: { bowlerId: bowlerId, teamId: teamId } })
                 .then(response => response.data);
         }
 
@@ -42,7 +50,7 @@ module BowlingSPA.Services {
 
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
-            return this._http.get(this._apiResourceUrl + '/Bowler', { params: { name: val } })
+            return this._http.get(this._apiResourceUrl + 'Bowler', { params: { name: val } })
                 .then(response => {
                     var matchingBowlers = [];
                     angular.forEach(response.data, item => {

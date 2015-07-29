@@ -5,7 +5,7 @@ var BowlingSPA;
     (function (Controllers) {
         'use strict';
         var BowlersController = (function () {
-            function BowlersController($scope, $http, bowlingService) {
+            function BowlersController($scope, $http, $location, bowlingService) {
                 var _this = this;
                 var onGetBowlers = function (data) {
                     return data;
@@ -69,8 +69,11 @@ var BowlingSPA;
                         .then(onBowlerStandings, onBowlerStandingsError);
                     //$scope.userName = "Split Happens";
                 };
+                $scope.addbowler = function () {
+                    $location.path('/addbowler');
+                };
             }
-            BowlersController.$inject = ["$scope", "$http", "bowlingService"];
+            BowlersController.$inject = ["$scope", "$http", "$location", "bowlingService"];
             return BowlersController;
         })();
         Controllers.BowlersController = BowlersController;

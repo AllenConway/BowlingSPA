@@ -1,0 +1,62 @@
+﻿<div>
+
+    <!--Bootstrap Container exists on default HTML view housing any grid system elements in this view-->
+    <div class="padding10">
+
+        {{ error }}
+
+        <div class="container-fluid">
+
+            <form name="addBowlerForm"
+                  class="form-horizontal"
+                  role="form"
+                  ng-submit="submit(bowler)"
+                  autocomplete="off">
+
+                <fieldset id="addBowlerInfo">
+                    <legend>Add Bowler Information</legend>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="FirstName">First Name:</label>
+                        <div class="col-sm-4">
+                            <input id="FirstName" name="FirstName" type="text" class="form-control" ng-model="bowler.FirstName" placeholder="Enter Bowler's First Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="LastName">Last Name:</label>
+                        <div class="col-sm-4">
+                            <input id="LastName" name="LastName" type="text" ng-model="bowler.LastName" class="form-control" placeholder="Enter Bowler's Last Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="Average">Average:</label>
+                        <div class="col-sm-3">
+                            <input id="Average" name="Average" type="text" ng-model="bowler.Average" class="form-control" placeholder="Enter Bowler's Average" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="Handicap">Handicap:</label>
+                        <div class="col-sm-3">
+                            <input id="Handicap" name="Handicap" type="text" ng-model="bowler.Handicap" class="form-control" placeholder="Enter Bowler's Handicap" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-3">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn" ng-click="cancelAddBowler()">Cancel</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

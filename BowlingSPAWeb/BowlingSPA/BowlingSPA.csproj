@@ -150,6 +150,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controllers\addbowler.js">
+      <DependentUpon>addbowler.ts</DependentUpon>
+    </Content>
+    <Content Include="app\controllers\leagues.js">
+      <DependentUpon>leagues.ts</DependentUpon>
+    </Content>
+    <Content Include="app\partials\addbowler.html" />
+    <Content Include="app\partials\leagues.html" />
     <Content Include="app\services\bowling.js">
       <DependentUpon>bowling.ts</DependentUpon>
     </Content>
@@ -917,6 +925,12 @@
     <Content Include="app\services\bowling.js.map">
       <DependentUpon>bowling.ts</DependentUpon>
     </Content>
+    <Content Include="app\controllers\addbowler.js.map">
+      <DependentUpon>addbowler.ts</DependentUpon>
+    </Content>
+    <Content Include="app\controllers\leagues.js.map">
+      <DependentUpon>leagues.ts</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_zh-cn.js" />
     <Content Include="Scripts\i18n\angular-locale_zh-hans-cn.js" />
@@ -946,6 +960,7 @@
       <DependentUpon>bowlers.ts</DependentUpon>
     </Content>
     <Content Include="app\controllers\landing.js" />
+    <TypeScriptCompile Include="app\controllers\addbowler.ts" />
     <TypeScriptCompile Include="app\controllers\bowlers.ts" />
     <Content Include="app\controllers\teams.js" />
     <Content Include="app\partials\bowlers.html" />
@@ -987,6 +1002,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="app\controllers\leagues.ts" />
     <TypeScriptCompile Include="app\services\bowling.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
