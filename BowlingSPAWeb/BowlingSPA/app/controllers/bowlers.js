@@ -73,7 +73,7 @@ var BowlingSPA;
                     $location.path('/addbowler');
                 };
             }
-            BowlersController.$inject = ["$scope", "$http", "$locations", "bowlingService"];
+            BowlersController.$inject = ["$scope", "$http", "$location", "bowlingService"];
             return BowlersController;
         })();
         Controllers.BowlersController = BowlersController;
