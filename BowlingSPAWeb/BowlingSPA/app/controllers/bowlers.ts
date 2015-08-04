@@ -28,10 +28,10 @@ module BowlingSPA.Controllers {
             $scope: BowlersScope,
             $http: ng.IHttpService,
             $location: ng.ILocationService,
-            bowlingService: BowlingSPA.Services.BowlingService) {
+            bowlingService: Services.BowlingService) {
 
-            var onGetBowlers = (data: any) => {
-                return data;
+            var onGetBowlers = (bowlerData: BowlingSPAService.Model.EntityModels.Bowler[]) => {
+                return bowlerData;
             };
 
             var onGetBowlersError = (response: any) => {
@@ -41,22 +41,22 @@ module BowlingSPA.Controllers {
             // Any function returning a promise object can be used to load values asynchronously
             $scope.getBowlers = (val: any) => {
 
-                //   bowlingService.getBowlerMatch(val)
-                //      .then(function(response) {
-                //      return response;
-                //   }, onGetBowlersError);
+                   // Function returning a promise object can be used to load values asynchronously
+                   return bowlingService.getBowlerMatch(val)
+                       .then(onGetBowlers, onGetBowlersError);
 
-                this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
+                //Uncomment to return promise and data directly in the Controller instead of via a service
+                //this._apiResourceUrl = Globals.apiUrl; //.replace(/:([^\/])/, '\\:$1');
 
-                return $http.get(this._apiResourceUrl + '/Bowler', { params: { name: val } })
-                    .then((response) => {
-                        //var matchingBowlers = [];
-                        //angular.forEach(response.data, function (item) {
-                        //   matchingBowlers.push(item.Id, item.FullName);
-                        //});
-                        //return matchingBowlers;
-                        return response.data;
-                    });
+                //return $http.get(this._apiResourceUrl + '/Bowler', { params: { name: val } })
+                //    .then((response) => {
+                //        //var matchingBowlers = [];
+                //        //angular.forEach(response.data, function (item) {
+                //        //   matchingBowlers.push(item.Id, item.FullName);
+                //        //});
+                //        //return matchingBowlers;
+                //        return response.data;
+                //    });
 
             };
 

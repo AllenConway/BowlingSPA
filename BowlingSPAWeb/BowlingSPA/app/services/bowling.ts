@@ -51,12 +51,13 @@ module BowlingSPA.Services {
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
 
             return this._http.get(this._apiResourceUrl + 'Bowler', { params: { name: val } })
-                .then(response => {
-                    var matchingBowlers = [];
-                    angular.forEach(response.data, item => {
-                        matchingBowlers.push(item.FullName);
-                    });
-                    return matchingBowlers;
+                .then((response) => {
+                    //var matchingBowlers = [];
+                    //angular.forEach(response.data, item => {
+                    //    matchingBowlers.push(item.FullName);
+                    //});
+                    //return matchingBowlers;
+                    return response.data;
                 });
         }
 

@@ -3,10 +3,24 @@
     <!--Bootstrap Container exists on default HTML view housing any grid system elements in this view-->
     <div class="padding10">
 
+        <!-- Single button style dropdown -->
+        <div class="btn-group " dropdown is-open="status.isopen">
+            <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+                Select a League <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="league in leagues">
+                    <a href="#" is-open="status.isopen" id="{{league.Id}}" ng-click="showGridData($event, team)">{{league.Name}}</a>
+                </li>
+            </ul>
+        </div>
         {{ error }}
+        <!--Add Bootstrap class that will make the grid responsive-->
+        <!--<div class="table-responsive padding10">
+            <div class="gridStyle" ng-grid="gridOptions">
 
-        Leagues:
+            </div>
+        </div>-->
 
     </div>
-
 </div>

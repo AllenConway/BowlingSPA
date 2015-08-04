@@ -6,7 +6,9 @@
 *.user
 *.sln.docstates
 
-# Typescript Auto-generated files (careful, all files must be TS files in this directory or ordinary JS files could be removed)
+# Typescript Auto-generated files 
+# Note: all files must be TS files in this directory or ordinary JS files could be removed
+# Modify as needed to preserve files and be more explicit
 BowlingSPAWeb/BowlingSPA/app/*.js
 BowlingSPAWeb/BowlingSPA/app/*.js.map
 BowlingSPAWeb/BowlingSPA/app/controllers/*.js
