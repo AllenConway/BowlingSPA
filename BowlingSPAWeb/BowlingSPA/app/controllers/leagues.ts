@@ -29,11 +29,9 @@ module BowlingSPA.Controllers {
                 $scope.error = "Could not fetch the leagues";
             };
 
-            $scope.getLeagues = () => {
-                //Get the leagues for the bowler selected
-                return $bowlingService.getLeagues()
-                    .then(onGetLeagues, onGetLeaguesError);
-            }
+            //Populate all League data upon loading this controller
+            $bowlingService.getLeagues()
+                .then(onGetLeagues, onGetLeaguesError);
 
             //$scope.showGridData = ($event, league) => {
 
