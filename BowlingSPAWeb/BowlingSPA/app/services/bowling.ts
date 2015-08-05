@@ -22,6 +22,22 @@ module BowlingSPA.Services {
                 .then(response => response.data);
         }
 
+        public getLeague(leagueId: number): any {
+
+            this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
+
+            return this._http.get(this._apiResourceUrl + 'Leagues/' + leagueId)
+                .then(response => response.data);
+        }
+
+        public getTeams(leagueId: number): any {
+
+            this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');
+
+            return this._http.get(this._apiResourceUrl + 'Teams/' + leagueId)
+                .then(response => response.data);
+        }
+
         public getLeagues(): any {
 
             this._apiResourceUrl = Globals.apiUrl;//.replace(/:([^\/])/, '\\:$1');

@@ -188,6 +188,7 @@
     <Compile Include="Controllers\api\BowlerLeaguesController.cs" />
     <Compile Include="Controllers\api\BowlerStandingsController.cs" />
     <Compile Include="Controllers\api\LeagueStandingsController.cs" />
+    <Compile Include="Controllers\api\TeamsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
