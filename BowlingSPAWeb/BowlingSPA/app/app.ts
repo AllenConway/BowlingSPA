@@ -5,6 +5,7 @@ module BowlingSPA {
 
     //Declare a new Angular Module named 'BowlingSPA' for use throughout the app
     //The module is the component that ties all of the other Angular application components together.
+    //Additional external modules outside of the core AngularJS can be loaded here as well
     export var app: ng.IModule = angular.module("BowlingSPA", ["ngRoute", "ngGrid", "ui.bootstrap"]);
 
     //Use inline annotated function; JS doesn't have annotations needed for DI, so annotate function with injection arguments

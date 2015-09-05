@@ -3,9 +3,11 @@
 module BowlingSPA.Controllers {
     'use strict';
 
+    import BowlingModels = BowlingSPAService.Model.EntityModels;
+
     export interface LeaguesScope extends ng.IScope {
         error: string;
-        leagueTeams: BowlingSPAService.Model.EntityModels.Team[];
+        leagueTeams: BowlingModels.Team[];
         leagues: any;
         status: any;        
         showGridData($event, league): any;
@@ -23,7 +25,7 @@ module BowlingSPA.Controllers {
             $bowlingService: Services.BowlingService) {
             
 
-            var onGetLeagues = (leagues: BowlingSPAService.Model.EntityModels.League[]) => {
+            var onGetLeagues = (leagues: BowlingModels.League[]) => {
                 $scope.leagues = leagues;
             };
 
@@ -35,7 +37,7 @@ module BowlingSPA.Controllers {
             $bowlingService.getLeagues()
                 .then(onGetLeagues, onGetLeaguesError);
 
-            var onGetLeagueTeams = (teams: BowlingSPAService.Model.EntityModels.Team[]) => {
+            var onGetLeagueTeams = (teams: BowlingModels.Team[]) => {
                 $scope.leagueTeams = teams;
             };
 
@@ -43,7 +45,7 @@ module BowlingSPA.Controllers {
                 $scope.error = "Could not fetch the selected league team data.";
             };
 
-            $scope.showGridData = ($event, league: BowlingSPAService.Model.EntityModels.League) => {
+            $scope.showGridData = ($event, league: BowlingModels.League) => {
 
                 //Close the dropdown after a selection has been made
                 $scope.status = {
@@ -64,12 +66,14 @@ module BowlingSPA.Controllers {
             };
 
             $scope.columns = [
-                { field: 'Name', displayName: 'Team Name', width: "*" },
+                { field: "Name", displayName: "Team Name", width: "*" },
             ];
 
             $scope.gridOptions = {
-                data: 'leagueTeams',
-                columnDefs: 'columns'
+                data: "leagueTeams",
+                columnDefs: "columns",
+                enableSorting: true,
+                sortInfo: { fields: ["Name"], directions: ['asc'] }
             }
 
         }

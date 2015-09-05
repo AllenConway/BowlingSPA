@@ -46,6 +46,7 @@ namespace BowlingSPA
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
+            // EnableOptimizations: overrides the debug attribute in the compilation Element in the Web.config file
             #if (RELEASE)
             {  
               BundleTable.EnableOptimizations = true;
