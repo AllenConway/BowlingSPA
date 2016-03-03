@@ -19,6 +19,9 @@ module BowlingSPA {
         //Default behavior since v1.1.1 (http://bit.ly/1t7Vcci)
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
+        //Providers are objects that provide (create) instances of services and expose configuration APIs 
+        //that can be used to control the creation and runtime behavior of a service. In case of the $route service, 
+        //the $routeProvider exposes APIs that allows definition of the routes for the application.
         $routeProvider
             .when("/landing", {
                 templateUrl: "app/partials/landing.html",  //relative path to the .html partial

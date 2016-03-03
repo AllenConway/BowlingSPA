@@ -1,4 +1,4 @@
-﻿//IFFY Immediately Invoked Function Expression
+﻿//IIFE Immediately Invoked Function Expression
 (function () {
 
    //Find existing Module instance named 'BowlingSPA'

@@ -17,11 +17,10 @@ module BowlingSPA.Controllers {
 
     export class LeaguesController {
         
-        static $inject = ["$scope", "$location", "bowlingService"];
+        static $inject = ["$scope", "bowlingService"];
 
         constructor(
-            $scope: LeaguesScope,
-            $location: ng.ILocationService,
+            $scope: LeaguesScope,            
             $bowlingService: Services.BowlingService) {
             
 
