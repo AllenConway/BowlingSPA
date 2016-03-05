@@ -12,12 +12,14 @@ module BowlingSPA {
     //Use array of injection names, where the last item in the array is a function to call
     //Because JavaScript has no syntax for declaring the type of a variable, we must specify the data type. See: https://docs.angularjs.org/api/auto/service/$injector
     app.config([
-        '$routeProvider', '$httpProvider', 
-        ($routeProvider: ng.route.IRouteProvider, $httpProvider: ng.IHttpProvider) => {
+        '$routeProvider', '$httpProvider', '$logProvider',
+        ($routeProvider: ng.route.IRouteProvider, $httpProvider: ng.IHttpProvider, $logProvider: ng.ILogProvider) => {
         
         // enable CORS on IE <= 9
         //Default behavior since v1.1.1 (http://bit.ly/1t7Vcci)
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+            $logProvider.debugEnabled(true);
 
         //Providers are objects that provide (create) instances of services and expose configuration APIs 
         //that can be used to control the creation and runtime behavior of a service. In case of the $route service, 
@@ -45,6 +47,11 @@ module BowlingSPA {
             })
             .otherwise({ redirectTo: "/landing" });
         }
-    ]);
+    ]).directive('sampleText', function () {
+        return {
+            restrict: "E",
+            template: '<div>Some sample text here.</div>'
+        };
+    });
 
 }

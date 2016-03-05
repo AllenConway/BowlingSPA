@@ -107,6 +107,16 @@ textarea {
    margin-top: 3px !important;
 }
 
+.padding-top-md {
+   padding-top: 10px !important;
+   margin-top: 10px !important;
+}
+
+.padding-top-lg {
+   padding-top: 15px !important;
+   margin-top: 15px !important;
+}
+
 .padding-md {
    padding: 5px !important;
    margin: 5px !important;

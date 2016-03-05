@@ -4,8 +4,8 @@ var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "
 $provide.value("$locale", {
   "DATETIME_FORMATS": {
     "AMPMS": [
-      "\u00d6\u00d6",
-      "\u00d6S"
+      "AM",
+      "PM"
     ],
     "DAY": [
       "Pazar",
@@ -16,15 +16,6 @@ $provide.value("$locale", {
       "Cuma",
       "Cumartesi"
     ],
-    "ERANAMES": [
-      "Milattan \u00d6nce",
-      "Milattan Sonra"
-    ],
-    "ERAS": [
-      "M\u00d6",
-      "MS"
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "Ocak",
       "\u015eubat",
@@ -62,31 +53,13 @@ $provide.value("$locale", {
       "Kas",
       "Ara"
     ],
-    "STANDALONEMONTH": [
-      "Ocak",
-      "\u015eubat",
-      "Mart",
-      "Nisan",
-      "May\u0131s",
-      "Haziran",
-      "Temmuz",
-      "A\u011fustos",
-      "Eyl\u00fcl",
-      "Ekim",
-      "Kas\u0131m",
-      "Aral\u0131k"
-    ],
-    "WEEKENDRANGE": [
-      5,
-      6
-    ],
     "fullDate": "d MMMM y EEEE",
     "longDate": "d MMMM y",
     "medium": "d MMM y HH:mm:ss",
     "mediumDate": "d MMM y",
     "mediumTime": "HH:mm:ss",
-    "short": "d MM y HH:mm",
-    "shortDate": "d MM y",
+    "short": "dd MM yyyy HH:mm",
+    "shortDate": "dd MM yyyy",
     "shortTime": "HH:mm"
   },
   "NUMBER_FORMATS": {
@@ -97,6 +70,7 @@ $provide.value("$locale", {
       {
         "gSize": 3,
         "lgSize": 3,
+        "macFrac": 0,
         "maxFrac": 3,
         "minFrac": 0,
         "minInt": 1,
@@ -108,18 +82,18 @@ $provide.value("$locale", {
       {
         "gSize": 3,
         "lgSize": 3,
+        "macFrac": 0,
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-",
-        "negSuf": "\u00a0\u00a4",
+        "negPre": "(",
+        "negSuf": "\u00a0\u00a4)",
         "posPre": "",
         "posSuf": "\u00a0\u00a4"
       }
     ]
   },
   "id": "tr-tr",
-  "localeID": "tr_TR",
-  "pluralCat": function(n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n) {  return PLURAL_CATEGORY.OTHER;}
 });
 }]);
