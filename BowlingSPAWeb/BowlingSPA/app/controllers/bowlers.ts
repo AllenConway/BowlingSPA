@@ -22,6 +22,8 @@ module BowlingSPA.Controllers {
         private _apiResourceUrl: string;
         private _http: ng.IHttpService;
 
+        //To allow the minifiers to rename the function parameters and still be able to inject the right services, 
+        //the function needs to be annotated with the $inject property.The $inject property is an array of service names to inject.
         static $inject = ["$scope", "$http", "$location", "bowlingService"];
 
         constructor(
