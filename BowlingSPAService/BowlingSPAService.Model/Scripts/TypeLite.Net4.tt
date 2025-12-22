@@ -2,8 +2,8 @@
 	hostspecific="True" 
 	language="C#" #>
 
-<#@ assembly name="$(TargetDir)TypeLite.dll" #>
-<#@ assembly name="$(TargetDir)TypeLite.Net4.dll" #>
+<#@ assembly name="$(SolutionDir)packages\TypeLite.1.4.0\lib\net4\TypeLite.dll" #>
+<#@ assembly name="$(SolutionDir)packages\TypeLite.1.4.0\lib\net4\TypeLite.Net4.dll" #>
 <#@ assembly name="$(TargetDir)$(TargetFileName)" #>
 
 <#@ assembly name="$(TargetDir)\BowlingSPAService.Model.dll" #>
